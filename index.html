@@ -1,45 +1,41 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulador</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galería de Dibujos</title>
+  <link rel="stylesheet" href="./styles/styles.css" />
+  <script defer src="./js/main.js"></script>
 </head>
 <body>
-    <header>
-        <h1>Galeria Digital de Dibujos</h1>
-        <p class="description">Explora y colecciona mis ilustraciones digitales</p>
-    </header>
-    <main>
-    <form id="drawingForm" class="drawing-form">
-        <div class="form-group">
-            <label for="drawingStyle">Estilo de Dibujo:</label>
-            <select id="drawingStyle" required aria-label="Estilo de dibujo">
-                <option value="">Seleccione un estilo</option>
-                <option value="digital">Digital</option>
-                <option value="traditional">Tradicional</option>
-                <option value="sketch">Sketch</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="drawingTags">Etiquetas (separar por comas):</label>
-            <input type="text" id="drawingTags" placeholder="Ej: retrato, caricatura, manga" aria-label="Etiquetas del dibujo">
-        </div>
-        <button type="submit" class="btn-primary">Buscar Dibujos 🔍</button>
+  <div class="container">
+    <h1>Bienvenido a la Galería de Dibujos</h1>
+    <h3>Paso 1: Registro de Nuevos Dibujos</h3>
+
+    <form id="formDibujo">
+        <label for="titulo">Título del Dibujo</label>
+        <input type="text" id="titulo" name="titulo" placeholder="Ej: Paisaje de Montañas" required>
+
+        <label for="artista">Nombre del Artista</label>
+        <input type="text" id="artista" name="artista" placeholder="Ej: Ana López" required>
+
+        <label for="categoria">Categoría</label>
+        <select id="categoria" name="categoria" required>
+            <option value="">Seleccione una categoría</option>
+            <option value="Retrato">Retrato</option>
+            <option value="Naturaleza">Naturaleza</option>
+            <option value="Abstracto">Abstracto</option>
+        </select>
+
+        <button id="guardarDibujo" type="button">Guardar Dibujo</button>
+        <button id="borrarDibujos" type="button">Borrar Dibujos</button>
+        <h3 id="mensajeDeAlerta" class="error"></h3>
     </form>
-    <section class="gallery-section">
-        <h2>🎨 Mis Dibujos</h2>
-        <div class="gallery-info">
-            <p>Resultados: <span id="resultsCount">0 dibujos</span></p>
-        </div>
-        <div id="drawingGallery" class="gallery-grid">
-        
-        </div>
-        <button id="loadMoreBtn" class="btn-primary">Cargar más dibujos</button>
-        <button id="clearFiltersBtn" class="btn-secondary">Limpiar filtros</button>
-    </section>
-    </main>
-   
+  </div>
+  <div class="container">
+    <h2 id="tituloDibujosRegistrados">Dibujos Registrados: 0</h2>
+    <div id="listaDibujos"></div>
+  </div>
 </body>
 </html>
+
